@@ -21,7 +21,7 @@ const questions = [
         question: "which is the small country in Africa ?",
         answers: [
             { text: "congo", correct: false },
-            { text: "reunion island", correct: false },
+            { text: "reunion island", correct: true },
             { text: "namibia", correct: false },
             { text: "kenya", correct: false },    
         ]
@@ -29,10 +29,19 @@ const questions = [
     {
         question: "which is the device of congo brazzaville ?",
         answers: [
-            { text: "cfa", correct: false },
+            { text: "cfa", correct: true },
             { text: "euro", correct: false },
             { text: "dollar", correct: false },
             { text: "dinar", correct: false },    
+        ]
+    },
+    {
+        question: "who is the best soccer player of Africa ?",
+        answers: [
+            { text: "Eto'o", correct: true },
+            { text: "Drogba", correct: false },
+            { text: "Ayu", correct: false },
+            { text: "Dembele", correct: false },    
         ]
     },
 ]
@@ -85,9 +94,46 @@ function selectAnswer(e) {
 
     if (isCorrect) {
         selectBtn.classList.add("correct")
+        score ++
     }
     else {
          selectBtn.classList.add("incorrect")
     }
+
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct")
+        }
+        button.disabled = true
+    })
+    nexButton.style.display = "block"
 }
+
+function showScore() {
+    resetState()
+    questionElement.innerHTML = "Votre scrore " + score + " / " + questions.length + "!"
+    nexButton.innerHTML = "play again"
+    nexButton.style.display = "block"
+}
+function handleNextButton() {
+    currentQuestionIndex++
+    if (currentQuestionIndex < questions.length) {
+        resetState()
+        showQuestion()
+    } else {
+        showScore()
+    }
+}
+
+
+nexButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton()
+    }
+    else {
+        startQuiz()
+    }
+})
+
+
 startQuiz()
