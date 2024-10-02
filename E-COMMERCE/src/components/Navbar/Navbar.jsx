@@ -1,65 +1,66 @@
 import React from 'react'
-import logo from "../../assets/react.svg"
-import { FaSearch } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
+import logo from "../../assets/logo2.png";
+import Darkmode from './Darkmode';
+
+const Menu = [
+    {
+        id: 1,
+        name: "Accueil",
+        link:"/#",
+    },
+    {
+        id: 2,
+        name: "Plus notés",
+        link:"/#",
+    },
+    {
+        id: 3,
+        name: "Enfants",
+        link:"/#",
+    },
+    {
+        id: 4,
+        name: "Homme",
+        link:"/#",
+    },
+]
 
 const Navbar = () => {
-  return (
-      <div className=''>
-      {/* upper navbar */}
-          <div className='shadow-md bg-red-400 text-black dark:bg-gray-900 dark:text-white duration-200 relative z-40 py-3 sm:py-1'>
-              <div>
-                  {/* container for items */}
-                  <div className='container 
-                        flex justify-between items-center'>
-                      
-                      <div className=''>
-                          <a href='#'
-                              className='font-bold text-2xl 
-                          sm:text-3xl flex gap-2'>
-                              <img src={logo} alt='mon logo' 
-                                  className='w-10 '
-                              />
-                              Elianshop
-                          </a>
-                      </div>
-                      {/* search bar and order button */}
-                      <div className=''>
-                          <div className='relative group hidden sm:block'>
-                              <input type='text'
-                                  placeholder='recherche'
-                                  className='w-[200px] sm:w-[200px] group-hover:w-[300px] transition-all duration-300 rounded-full border border-gray-300 py-1 px-2 
-                                  focus:outline-none focus:border-1 
-                                  focus:border-red-400 '
-                              />
-                              <FaSearch 
-                                  className='text-gray-500
-                                   group-hover:text-red-400 
-                                   absolute top-1/2 -translate-y-1/2 right-3'
-                              />
-                          </div>
-                      </div>
-                      {/* order buttons */}
-                      <button
-                          onClick={() => {
-                              alert("test if it runs")
-                          }}
-                          className='bg-red-500 transition-all 
-                          duration-300 text-white py-1 
-                          px-4 rounded-full flex items-center gap-3 group'
-                      >
-                          <span className='group-hover:block hidden
-                           transition-all duration-300'>
-                              order</span>
-                          <FaShoppingCart 
-                              className='cursor-pointer drop-shadow-sm'
-                          />
-                      </button>
+    return (
+        <div className='w-full bg-red-900 shadow-md dark:bg-gray-900
+         dark:text-gray-100 duration-200 relative z-40'>
+            <div className='container flex justify-between items-center py-2 px-2 text-white'>
+                {/* logo */}
+                <div>
+                    <a href='#' className='font-bold text-2xl sm:text-3xl flex gap-2 '>
+                        <img src={logo} alt='logo' className='w-10' />
+                        e-commerce
+                    </a>
+                </div>
 
-                  </div>
-              </div>
-          </div>
-    </div>
+                {/* link item */}
+                <di className="flex justify-center">
+                    <ul className='sm:flex hidden items-center gap-4' >
+                        {
+                            Menu.map((data) => (
+                                <li key={data.id}>
+                                    <a href={data.link}
+                                        className='inline-block px-4 
+                                        hover:text-red-300 duration-100 dark:hover:text-gray-300'> {data.name} </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </di>
+
+                {/* autre darkMode */}
+                <div>
+                    <Darkmode/>
+                </div>
+            
+            </div>
+        </div>
+      
   )
 }
 
