@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import sun from '../../assets/sun.jpg'
-import moon from '../../assets/moon.jpg'
 
 import { IoSunny } from "react-icons/io5";
 import { IoMoon } from "react-icons/io5";

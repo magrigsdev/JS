@@ -1,7 +1,7 @@
 import React from 'react'
-import hero from '../../assets/hero.png'
-import hero1 from '../../assets/hero1.png'
-import hero2 from '../../assets/hero2.png'
+import hero from '../../assets/heros/hero.png'
+import hero1 from '../../assets/heros/hero1.png'
+import hero2 from '../../assets/heros/hero2.png'
 import Slider from "react-slick"
 
 const Heros = () => {
@@ -19,6 +19,7 @@ const Heros = () => {
         pauseOnFocus:true
        
     }
+
     const ImageList = [
         {
             id: 1,
@@ -41,7 +42,6 @@ const Heros = () => {
                         
     ]
    
-
 
     return (
         <div className='relative overflow-hidden 
@@ -80,7 +80,7 @@ const Heros = () => {
                                 <div className='relative z-10'>
                                     <img src={data.image} alt=''
                                         className='w-[400px] h-[300px] sm:h[450px]
-                                    sm:scale-125 object-contain mx-auto'/>
+                                    sm:scale-120 object-contain mx-auto'/>
                                 </div>
                             </div>
                             
@@ -91,7 +91,6 @@ const Heros = () => {
                     }
 
                 </Slider> 
-
             </div>
       </div>
       

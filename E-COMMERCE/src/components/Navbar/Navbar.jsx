@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from "../../assets/logo2.png";
+import logo from "../../assets/logo/logo2.png";
 import Darkmode from './Darkmode';
 
 const Menu = [
@@ -21,6 +21,11 @@ const Menu = [
     {
         id: 4,
         name: "Homme",
+        link:"/#",
+    },
+    {
+        id: 5,
+        name: "Femmes",
         link:"/#",
     },
 ]
